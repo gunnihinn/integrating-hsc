@@ -1,0 +1,45 @@
+html,
+body {
+        min-height: 100vh;
+        overflow: auto;
+}
+
+html {
+        background-color: AliceBlue;
+}
+
+body {
+        font-family: "Computer Modern Sans", sans-serif;
+        background-color: white;
+
+        max-width: 45em;
+        margin: auto;
+
+        text-align: justify;
+        line-height: 1.4;
+
+        padding-left: 3em;
+        padding-right: 3em;
+        border-left: 1px solid purple;
+        border-right: 1px solid purple;
+}
+
+h1 {
+        text-align: center;
+}
+
+h1 + p {
+        text-align: center;
+        font-size: 24px;
+}
+
+#abstract + p {
+        max-width: 35em;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+h3 {
+        font-size: 16px;
+        padding-right: 1em;
+}
