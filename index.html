@@ -12,11 +12,17 @@
 MathJax = {
   tex: {
     macros: {
-      RR: '{\bf R}',                    // a simple string replacement
-      bold: ['\boldsymbol{#1}',1] ,     // this macro has one parameter
-      ddx: ['\frac{d#2}{d#1}', 2, 'x'], // this macro has an optional parameter that defaults to 'x'
-      abc: ['(#1)', 1, [null, '\cba']],  // equivalent to defbc#1a{(#1)}
-      Vol: '{\\operatorname{Vol}}'
+      RR: '{\\bf R}',                    // a simple string replacement
+      C: '{\\bf C}',                    // a simple string replacement
+      bold: ['\\boldsymbol{#1}',1] ,     // this macro has one parameter
+      ddx: ['\\frac{d#2}{d#1}', 2, 'x'], // this macro has an optional parameter that defaults to 'x'
+      abc: ['(#1)', 1, [null, '\\cba']],  // equivalent to \def\abc#1\cba{(#1)}
+      Vol: '{\\operatorname{Vol}}',
+      ov: ['\\overline{#1}', 1],
+      Sym: '{\\operatorname{Sym}}',
+      tr: '{\\operatorname{tr}}',
+      End: '{\\operatorname{End}}',
+      det: '{\\operatorname{det}}'
     }
   }
 };
@@ -43,14 +49,14 @@ We denote by \(R\) the curvature tensor of the Chern connection of \(h\).
 One of the main ways to simplify this complicated tensor is to consider the holomorphic sectional curvature of \(h\), that is</p>
 
 <p>\[
-H(\xi) = R(\xi, \overline{\xi}, \xi, \overline{\xi}) &#47; |\xi|^4
+H(\xi) = R(\xi, \ov{\xi}, \xi, \ov{\xi}) &#47; |\xi|^4
 \]</p>
 
 <p>for nonzero tangent fields \(\xi\).
 If \(s\) is the scalar curvature of \(h\), it is well-known that</p>
 
 <p>\[
-\frac{1}{\Vol\ S(T_{X,x})} \int_{S(T_{X,x})} H(\xi) d\sigma
+\frac{1}{\Vol S(T_{X,x})} \int_{S(T_{X,x})} H(\xi) d\sigma
 = \frac{1}{\binom{n+1}{2}} s,
 \]</p>
 
@@ -67,24 +73,174 @@ Our starting point is a representation-theoretic identity that is known to
 quantum information theorists, namely that</p>
 
 <p>\[
-\frac{1}{\Vol\ S(V)} \int_{S(V)} (v \otimes v^*)^{\otimes d} d\sigma
-= \frac{1}{\binom{n+d+1}{d}} \Pi_{d},
+\frac{1}{\Vol S(V)} \int_{S(V)} (v \otimes v^*)^{\otimes d} d\sigma
+= \frac{1}{\binom{n+d-1}{d}} \Pi_{d},
 \]</p>
 
 <p>where \(V\) is an \(n\)-dimensional complex vector space and \(\Pi_{d} : V^{\otimes d} \to V^{\otimes d}\) is the projection onto the subspace of symmetric \(d\)-tensors.
 Berger&#8217;s scalar curvature identity is an immediate consequence of this identity, and it and some routine linear algebra let us also evaluate the \(L^2\) norm of the holomorphic scalar curvature and see that</p>
 
 <p>\[
-\frac{1}{\Vol\ S(T_{X,x})} \int_{S(T_{X,x})} H(\xi)^2 d\sigma
-= \frac{1}{\binom{n+4}{3}} (|R|^2 + 4|r|^2 + s^2),
+\frac{1}{\Vol S(T_{X,x})} \int_{S(T_{X,x})} H(\xi)^2 d\sigma
+= \frac{1}{\binom{n+3}{4}} (|R|^2 + 4|r|^2 + s^2),
 \]</p>
 
 <p>where \(r\) is the Ricci-tensor of \(h\), which neatly explains why the holomorphic sectional curvature determines the whole tensor.</p>
 
 <p>Slightly more bookkeeping lets us also consider the same integrals for the curvature tensors of Hermitian metrics.
-There it is no longer true that the holomorphic sectional curvature determines the whole tensor, but we can say what it does determine, which turns out to be essentially the &#8220;symmetric&#8221; part of the tensor when viewed as a Hermitian form on \(V^{\otimes 2} = \bigwedge^{2} V \oplus \operatorname{Sym}^2 V\).</p>
+There it is no longer true that the holomorphic sectional curvature determines the whole tensor, but we can say what it does determine, which turns out to be essentially the &#8220;symmetric&#8221; part of the tensor when viewed as a Hermitian form on \(V^{\otimes 2} = \bigwedge^{2} V \oplus \Sym^2 V\).</p>
 
 <h2 id="algebraic-curvature-tensors">Algebraic curvature tensors</h2>
+
+<p>Let \(V\) be a complex vector space of dimension \(n\), which we think of as the
+tangent space of a complex manifold at a given point.
+The curvature tensor \(R\) of a Hermitian metric on the manifold identifies with
+a Hermitian form \(q\) on \(V \otimes V\), defined by</p>
+
+<p>\[
+R(x, \ov y, z, \ov w)
+= q(x \otimes z, \ov{y \otimes w}).
+\]</p>
+
+<p>If the metric is Kähler we get an additional symmetry
+\(R(x, \ov y, z, \ov w) = R(z, \ov y, x, \ov w)\)
+(and the ones induced by conjugating).
+A nice alternate reference for what we discuss here is
+<a href="#Sitaramayya">[Sitaramayya]</a>.</p>
+
+<p>We write \(B(V)\) for the real vector space of Hermitian forms on \(V\).
+The curvature tensor of a Hermitian metric is then just a member of \(B(V
+\otimes V)\). We call such an element an <em>algebraic Hermitian curvature
+tensor</em>, and one that satisfies the additional symmetry of a Kähler curvature
+tensor an <em>algebraic Kähler curvature tensor</em>.</p>
+
+<p>The decomposition \(V \otimes V = \bigwedge^2 V \oplus \Sym^2 V\) is standard.
+It implies that a Hermitian form on \(V \otimes V\) decomposes into components</p>
+
+<p>\[
+q = \begin{pmatrix}
+q_{\wedge^2 V} &#38; q_{(\Sym^2V, \wedge^2 V)}
+\\
+q_{(\wedge^2 V, \Sym^2V)} &#38; q_{\Sym^2 V},
+\end{pmatrix}
+\]</p>
+
+<p>where \(\ov{q}_{(\wedge^2 V, \Sym^2V)}^t = q_{(\Sym^2V, \wedge^2 V)}\).
+Denote the symmetrization map by</p>
+
+<p>\[
+\Pi_2 : V \otimes V \to \Sym^2 V,
+\quad
+x \otimes y \mapsto \tfrac 12 (x \otimes y + y \otimes x).
+\]</p>
+
+<p>It is a surjective linear morphism that realizes the space of symmetric tensors
+as a subspace of \(V \otimes V\).
+The usual definition of that space is as a quotient of \(V \otimes V\) by the
+ideal generated by \(x \otimes y - y \otimes x\).
+As the field \(\C\) has characteristic zero these spaces are isomorphic,
+so the difference between them isn&#8217;t very important to us.</p>
+
+<p><strong>Proposition.</strong>
+A tensor \(R \in B(V \otimes V)\) is an algebraic Kähler curvature tensor
+if and only if there exists an element \(\hat R \in B(\Sym^2 V)\) such that \(R =
+\Pi_2^* \hat R\).</p>
+
+<p><em>Proof:</em>
+Suppose \(R \in B(V \otimes V)\) is an algebraic Kähler curvature tensor.
+We define</p>
+
+<p>\[
+\hat R(x \odot z, \ov{y \odot w})
+= R(x, \ov y, z, \ov w),
+\]</p>
+
+<p>which is well-defined because \(R\) is Kähler, and we have \(R = \Pi_2^* \hat R\).</p>
+
+<p>Conversely, let \(\hat R \in B(\Sym^2 V)\), and define \(R = \Pi_2^* \hat R\).
+Then</p>
+
+<p>\[
+R(x, \ov y, z, \ov w)
+= \hat R(x \odot z, \ov{y \odot w})
+= \hat R(z \odot x, \ov{w \odot y})
+= R(z, \ov y, x, \ov w)
+\]</p>
+
+<p>is an algebraic Kähler curvature tensor.</p>
+
+<p>As an aside, this proposition explains why we only ever talk about Griffits
+positivity of Kähler metrics.
+A Hermitian metric is Nakano positive if its curvature tensor is
+positive-definite as a Hermitian form on \(V \otimes V\).
+A form that&#8217;s a pullback by a morphism with nontrivial
+kernel is never positive-definite.
+Therefore a Kähler metric is never Nakano positive when \(\Pi_2\) is not
+injective, which happens when
+\(n^2 = \dim V \otimes V &#62; \dim \Sym^2 V = \binom {n+1}2\),
+that is, when \(n &#62; 1\).</p>
+
+<p>There should then be a notion of positivity for Kähler curvature tensors that
+interpolates between Griffiths positivity and Nakano positivity and is perhaps
+more geometrically motivated than Griffiths positivity, where we would say that
+such a tensor is positive if its Hermitian form on \(\Sym^2 V\) is
+positive-definite.
+In light of Siu and Yau&#8217;s theorem any compact Kähler manifold that
+admits a metric so positive is just projective space, so we don&#8217;t need to think
+about it anymore.</p>
+
+<h2 id="projection-formula">Projection formula</h2>
+
+<p>Our starting point involves vector-valued integration, so let&#8217;s recall
+some basic facts.
+Let \(V\) and \(W\) be finite-dimensional complex vector spaces equipped with their
+Lebesgue measures.
+If \(f : V \to W\) is a continuous function and \(X \subset V\) a measurable subset
+we define \(\int_X f(v) d\mu(v) \in W\) to be the vector we get after picking
+bases and integrating coordinate by coordinate.
+If \(L : W \to Z\) is a linear map then \(L \int_X f(v) d\mu(v) = \int_X Lf(v)
+d\mu(v)\), because that holds at every step of the definition of the integral of
+a measurable function.
+This implies the integral is well-defined, as it behaves correctly with respect
+to a change of bases.
+It also implies that if \(f : V \to V\) is continuous then the trace commutes
+with the integral.</p>
+
+<p>Let&#8217;s suppose \(V\) is equipped with a Hermitian inner product \(h\)
+and let&#8217;s write \(d\mu\) for the induced volume form on the unit sphere \(S(V)\) in
+\(V\). For \(v \in V\) we define \(v \otimes v^*\) to be the linear map
+\(h^*(\ov v) v = x \mapsto h(x, \ov v) v\).
+Note that if \(f \in \End V\) then \(f \circ v \otimes v^* = h^*(\ov v) f(v)\)
+and thus \(\tr(f \circ v \otimes v^*) = h(fv, \ov v)\).
+The following is known to quantum information theorists; see
+<a href="#Harrow">[Harrow]</a>
+and
+<a href="#Watrous">[Watrous, Chapter 7]</a>.</p>
+
+<p><strong>Proposition.</strong>
+Denote by \(\Pi_d : V^{\otimes d} \to V^{\otimes d}\) the projection onto \(\Sym^d V\).
+Then</p>
+
+<p>\[
+\frac{1}{\Vol S(V)}
+\int_{S(V)} (v \otimes v^*)^{d} d\mu(v)
+= \frac{1}{\binom{n+d-1}{d}} \Pi_d.
+\]</p>
+
+<p><em>Proof:</em>
+Let&#8217;s denote the map defined by the integral by \(L\). If \(g \in \End V\) is
+unitary with respect to \(h\) we have \(h(g x, \ov v) = h(x, \ov{g^{-1} v})\) and
+\(|\det g| = 1\) so the change of basis formula implies that \(L g^d = g^d L\).
+The map \(L\) is then an interleaving operator of the representation \(V^{\otimes d}\)
+of the unitary group.</p>
+
+<p>The integral is thus a sum of multiples of the projections onto the irreducible
+factors of \(V^{\otimes d}\).
+Note however that the integral takes values in \(\Sym^d V\) because the integrand
+is invariant under \(S_d\), so \(L = \lambda \Pi_d\) for some scalar \(\lambda\).
+For a unit vector \(v\) we have \(\tr v \otimes v^* = |v|^2 = 1\).
+Taking the trace we then find that \(1 = \lambda \binom{n+d-1}{d}\),
+which implies the result.</p>
 
 <h2 id="khler-metrics">Kähler metrics</h2>
 
@@ -99,6 +255,25 @@ There it is no longer true that the holomorphic sectional curvature determines t
 <strong>Comptes Rendus de la IIIe Réunion du Groupement des Mathématiciens d&#8217;Expression Latine (Namur, 1965)</strong>,
 pages 35&#8211;55.
 Librairie Universitaire, Louvain, 1966.</p>
+
+<h3 id="harrow">[Harrow]</h3>
+
+<p>Aram W. Harrow.
+<em>The church of the symmetric subspace.</em>
+<strong>arXiv</strong> <a href="https://arxiv.org/abs/1308.6595">1308.6595</a>, 2013.</p>
+
+<h3 id="sitaramayya">Sitaramayya</h3>
+
+<p>Malladi Sitaramayya.
+<em><a href="http://www.jstor.org/stable/1996473">Curvature tensors in Kaehler manifolds</a>.</em>
+Trans. Amer. Math. Soc.
+<strong>183</strong>, 341&#8211;353, 1973.</p>
+
+<h3 id="watrous">[Watrous]</h3>
+
+<p>John Watrous.
+<em><a href="https://cs.uwaterloo.ca/~watrous/TQI/">The theory of quantum information</a>.</em>
+Cambridge University Press, 2018.</p>
 
 <h3 id="zheng">[Zheng]</h3>
 

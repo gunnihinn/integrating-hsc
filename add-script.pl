@@ -9,11 +9,17 @@ my $extra = <<EOF;
 MathJax = {
   tex: {
     macros: {
-      RR: '{\\bf R}',                    // a simple string replacement
-      bold: ['\\boldsymbol{#1}',1] ,     // this macro has one parameter
-      ddx: ['\\frac{d#2}{d#1}', 2, 'x'], // this macro has an optional parameter that defaults to 'x'
-      abc: ['(#1)', 1, [null, '\\cba']],  // equivalent to \def\abc#1\cba{(#1)}
-      Vol: '{\\\\operatorname{Vol}}'
+      RR: '{\\\\bf R}',                    // a simple string replacement
+      C: '{\\\\bf C}',                    // a simple string replacement
+      bold: ['\\\\boldsymbol{#1}',1] ,     // this macro has one parameter
+      ddx: ['\\\\frac{d#2}{d#1}', 2, 'x'], // this macro has an optional parameter that defaults to 'x'
+      abc: ['(#1)', 1, [null, '\\\\cba']],  // equivalent to \\def\\abc#1\\cba{(#1)}
+      Vol: '{\\\\operatorname{Vol}}',
+      ov: ['\\\\overline{#1}', 1],
+      Sym: '{\\\\operatorname{Sym}}',
+      tr: '{\\\\operatorname{tr}}',
+      End: '{\\\\operatorname{End}}',
+      det: '{\\\\operatorname{det}}'
     }
   }
 };
