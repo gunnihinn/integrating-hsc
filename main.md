@@ -230,15 +230,15 @@ Librairie Universitaire, Louvain, 1966.
 ### [Harrow]
 
 Aram W. Harrow.
-_The church of the symmetric subspace._
-**arXiv** [1308.6595](https://arxiv.org/abs/1308.6595), 2013.
+_[The church of the symmetric subspace](https://arxiv.org/abs/1308.6595)._
+**arXiv** 1308.6595, 2013.
 
-### Sitaramayya
+### [Sitaramayya]
 
 Malladi Sitaramayya.
 _[Curvature tensors in Kaehler manifolds](http://www.jstor.org/stable/1996473)._
 Trans. Amer. Math. Soc.
-**183**, 341--353, 1973.
+**183** (341--353) 1973.
 
 ### [Watrous]
 
