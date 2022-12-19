@@ -53,7 +53,7 @@ Berger's scalar curvature identity is an immediate consequence of this identity,
 
 $$
 \frac{1}{\Vol S(T_{X,x})} \int_{S(T_{X,x})} H(\xi)^2 d\sigma
-= \frac{1}{\binom{n+3}{4}} (|R|^2 + 4|r|^2 + s^2),
+= \frac{1}{6\binom{n+3}{4}} (|R|^2 + 4|r|^2 + s^2),
 $$
 
 where $r$ is the Ricci-tensor of $h$, which neatly explains why the holomorphic sectional curvature determines the whole tensor.
