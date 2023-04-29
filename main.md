@@ -249,7 +249,7 @@ result.
 $$
 \frac{1}{\Vol S(V)} \int_{S(V)}
 H(v)^2  d\mu(v)
-= \frac{1}{6 \binom{n+1}{2}\binom{n+3}{2}} (|R|^2 + 4|r|^2 + s^2).
+= \frac{1}{\binom{n+1}{2}\binom{n+3}{2}} (|R|^2 + 4|r|^2 + s^2).
 $$
 
 %begin-proof
