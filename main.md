@@ -31,8 +31,8 @@ $$
 = \frac{1}{\binom{n+1}{2}} s,
 $$
 
-where $S(T_{X,x})$ is the unit ball in $T_{X,x}$ [[Berger]](#berger).
-It is also well-known that the holomorphic sectional curvature determines the whole curvature tensor, in the sense that if $H = 0$ then $R = 0$ [[Zheng]](#zheng).
+where $S(T_{X,x})$ is the unit ball in $T_{X,x}$ [Berger].
+It is also well-known that the holomorphic sectional curvature determines the whole curvature tensor, in the sense that if $H = 0$ then $R = 0$ [Zheng].
 
 The existing proofs of these facts are by brute force calculations.
 The integral over the sphere is broken up into polynomial components that are evaluated separately and summed together.
@@ -77,7 +77,7 @@ If the metric is K\"ahler we get an additional symmetry
 $R(x, \ov y, z, \ov w) = R(z, \ov y, x, \ov w)$
 (and the ones induced by conjugating).
 A nice alternate reference for what we discuss here is
-[[Sitaramayya]](#Sitaramayya).
+[Sitaramayya].
 
 We write $B(V)$ for the real vector space of Hermitian forms on $V$.
 The curvature tensor of a Hermitian metric is then just a member of $B(V
@@ -185,9 +185,9 @@ $h^*(\ov v) v = x \mapsto h(x, \ov v) v$.
 Note that if $f \in \End V$ then $f \circ v \otimes v^* = h^*(\ov v) f(v)$
 and thus $\tr(f \circ v \otimes v^*) = h(fv, \ov v)$.
 The following is known to quantum information theorists; see
-[[Harrow]](#Harrow)
+[Harrow]
 and
-[[Watrous, Chapter 7]](#Watrous).
+[Watrous, Chapter 7].
 
 **Proposition 2.**
 Denote by $\Pi_d : V^{\otimes d} \to V^{\otimes d}$ the projection onto $\Sym^d V$.
@@ -633,36 +633,58 @@ It's not clear that there is further water to be squeezed from this stone.
 
 ## References
 
-### [Berger]
+<dl>
+<dt>
+Marcel Berger
+</dt>
 
-Marcel Berger.
-_Sur les vari\'et\'es d'Einstein compactes._
-**Comptes Rendus de la IIIe R\'eunion du Groupement des Math\'ematiciens d'Expression Latine (Namur, 1965)**,
+<dd>
+<i>Sur les vari\'et\'es d'Einstein compactes.</i>
+<b>Comptes Rendus de la IIIe R\'eunion du Groupement des Math\'ematiciens d'Expression Latine (Namur, 1965)</b>,
 pages 35--55.
 Librairie Universitaire, Louvain, 1966.
+</dd>
 
-### [Harrow]
 
+<dt>
 Aram W. Harrow.
-_[The church of the symmetric subspace](https://arxiv.org/abs/1308.6595)._
-**arXiv** 1308.6595, 2013.
+</dt>
+<dd>
+<a href="https://arxiv.org/abs/1308.6595">
+<i>The church of the symmetric subspace.</i></a>
+<b>arXiv</b>
+1308.6595, 2013.
+</dd>
 
-### [Sitaramayya]
 
+<dt>
 Malladi Sitaramayya.
-_[Curvature tensors in Kaehler manifolds](http://www.jstor.org/stable/1996473)._
+</dt>
+<dd>
+<a href="http://www.jstor.org/stable/1996473">
+<i>Curvature tensors in Kaehler manifolds.</i></a>
 Trans. Amer. Math. Soc.
-**183** (341--353) 1973.
+<b>183</b> (341--353) 1973.
+</dd>
 
-### [Watrous]
 
+<dt>
 John Watrous.
-_[The theory of quantum information](https://cs.uwaterloo.ca/~watrous/TQI/)._
+</dt>
+<dd>
+<a href="https://cs.uwaterloo.ca/~watrous/TQI/">
+<i>The theory of quantum information.</i></a>
 Cambridge University Press, 2018.
+</dd>
 
-### [Zheng]
 
+<dt>
 Fangyang Zheng.
-_Complex differential geometry._
-**AMS/IP Studies in Advanced Mathematics, 18**.
+</dt>
+<dd>
+<i>Complex differential geometry.</i>
+<b>AMS/IP Studies in Advanced Mathematics, 18</b>.
 Amer. Math. Soc. 2000.
+</dd>
+
+</dl>
