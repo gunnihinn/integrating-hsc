@@ -39,7 +39,7 @@ The integral over the sphere is broken up into polynomial components that are ev
 This works out in the end because of the seeming coincidence that the integrals of $|z_j|^4$ and $|z_j|^2 |z_k|^2$ over the unit sphere agree up to a factor of 2.
 The proof of the determination of the curvature tensor is by clever algebraic manipulation that leaves at least myself no wiser as to why this is true at all.
 
-In this article we propose a new route to these facts.
+In this note we propose a new route to these facts.
 Our starting point is a representation-theoretic identity that is known to
 quantum information theorists, namely that
 
@@ -53,7 +53,7 @@ Berger's scalar curvature identity is an immediate consequence of this identity,
 
 $$
 \frac{1}{\Vol S(T_{X,x})} \int_{S(T_{X,x})} H(\xi)^2 d\sigma
-= \frac{1}{6\binom{n+3}{4}} (|R|^2 + 4|r|^2 + s^2),
+= \frac{1}{\binom{n+1}{2}\binom{n+3}{2}} (|R|^2 + 4|r|^2 + s^2),
 $$
 
 where $r$ is the Ricci-tensor of $h$, which neatly explains why the holomorphic sectional curvature determines the whole tensor.
@@ -117,7 +117,7 @@ A tensor $R \in B(V \otimes V)$ is an algebraic K\"ahler curvature tensor
 if and only if there exists an element $\hat R \in B(\Sym^2 V)$ such that $R =
 \Pi_2^* \hat R$.
 
-_Proof:_
+%begin-proof
 Suppose $R \in B(V \otimes V)$ is an algebraic K\"ahler curvature tensor.
 We define
 
@@ -139,6 +139,7 @@ R(x, \ov y, z, \ov w)
 $$
 
 is an algebraic K\"ahler curvature tensor.
+%end-proof
 
 As an aside, this proposition explains why we only ever talk about Griffits
 positivity of K\"ahler metrics.
@@ -198,7 +199,7 @@ $$
 = \frac{1}{\binom{n+d-1}{d}} \Pi_d.
 $$
 
-_Proof:_
+%begin-proof
 Let's denote the map defined by the integral by $L$. If $g \in \End V$ is
 unitary with respect to $h$ we have $h(g x, \ov v) = h(x, \ov{g^{-1} v})$ and
 $|\det g| = 1$ so the change of basis formula implies that $L g^d = g^d L$.
@@ -212,6 +213,7 @@ is invariant under $S_d$, so $L = \lambda \Pi_d$ for some scalar $\lambda$.
 For a unit vector $v$ we have $\tr v \otimes v^* = |v|^2 = 1$.
 Taking the trace we then find that $1 = \lambda \binom{n+d-1}{d}$,
 which implies the result.
+%end-proof
 
 ## K\"ahler metrics
 
@@ -227,7 +229,7 @@ H(v)  d\mu(v)
 = \frac{1}{\binom{n+1}{2}} s.
 $$
 
-_Proof:_
+%begin-proof
 If $f \in \End V^{\otimes 2}$ then taking the trace of the
 equation in Proposition 2 for $d = 2$ gives
 
@@ -238,18 +240,19 @@ $$
 $$
 
 If $q \in B(\Sym^2)$ is the Hermitian form defined by the curvature tensor $R$,
-then applying this to $f = (h^{\otimes 2})^{-1} \Pi_2^* q$ gives the first
-equation.
+then applying this to $f = (h^{\otimes 2})^{-1} \Pi_2^* q$ gives the 
+result.
+%end-proof
 
 **Corollary 4.**
 
 $$
 \frac{1}{\Vol S(V)} \int_{S(V)}
 H(v)^2  d\mu(v)
-= \frac{1}{6 \binom{n+3}4} (|R|^2 + 4|r|^2 + s^2).
+= \frac{1}{6 \binom{n+1}{2}\binom{n+3}{2}} (|R|^2 + 4|r|^2 + s^2).
 $$
 
-_Proof:_
+%begin-proof
 We consider $f \otimes f \in \End V^{\otimes 4}$ where
 $f$ is as before and get that
 
@@ -297,7 +300,7 @@ $$
 \tr(f \otimes f \circ W_{(jmlk)})
 &= f_{jm,jk} f_{lk,lm}
 = \ov{(\tr_{13} f)_{km}} (\tr_{13} f)_{km}
-= |\!\tr_{13} f|^2,
+= | \tr_{13} f|^2,
 \\
 \tr(f \otimes f \circ W_{(kjlm)})
 &= f_{kj,jk} f_{lm,lm}
@@ -322,7 +325,7 @@ $$
 \tr(f \otimes f \circ W_{(kmjl)})
 &= f_{km,jk} f_{jl,lm}
 = \ov{(\tr_{23} f)_{jm}} (\tr_{23} f)_{jm}
-= |\! \tr_{23} f|^2,
+= | \tr_{23} f|^2,
 \\
 \tr(f \otimes f \circ W_{(kmlj)})
 &= f_{km,jk} f_{lj,lm}
@@ -337,12 +340,12 @@ $$
 \tr(f \otimes f \circ W_{(ljmk)})
 &= f_{lj,jk} f_{mk,lm}
 = \ov{(\tr_{14} f)_{kl}} (\tr_{14} f)_{kl}
-= |\! \tr_{14} f|^2,
+= | \tr_{14} f|^2,
 \\
 \tr(f \otimes f \circ W_{(lkjm)})
 &= f_{lk,jk} f_{jm,lm}
 = \ov{(\tr_{24} f)_{jl}} (\tr_{24} f)_{jl}
-= |\! \tr_{24} f|^2,
+= | \tr_{24} f|^2,
 \\
 \tr(f \otimes f \circ W_{(lkmj)})
 &= f_{lk,jk} f_{mj,lm}
@@ -393,16 +396,240 @@ $$
 
 As $R$ is a K\"ahler curvature tensor, we have $\tr_{13} f = \tr_{14} f =
 \tr_{23} f = r$, the Ricci tensor of the metric, and $W_{(12)} \circ f = f = f \circ W_{(12)}$.
-Adding everything up we then get
+Adding everything up we get
 
 $$
 \tr(f \circ \Pi_4)
 = \frac{1}{24} (4|R|^2 + 16 |r|^2 + 4 s^2)
 $$
 
-from which the result follows.
+and the result follows after we notice that $6\binom{n+3}{4} = \binom{n+1}{2}\binom{n+3}{2}$.
+%end-proof
+
+
+From here we can calculate things like the variance $\operatorname{Var} H =
+E[H^2] - E[H]^2$ of the holomorphic sectional curvature over the sphere.
+It would be fun to know if it decreases under something like the Ricci flow,
+but the calculations involved seem quite monstrous.
+When our metric has constant scalar curvature the variance gives a
+cohomological inequality of Chern numbers, but it's not clear this inequality is
+any better than the one we get from calculating $|R|^2$ in that case.
+
 
 ## Hermitian metrics
+
+We still work locally on the manifold $X$ and still write $V = T_X$.
+We now suppose only that $h$ is a Hermitian metric, which again gives a
+Hermitian inner product on $V$, but now consider an arbitrary algebraic
+Hermitian curvature tensor $R$ on $V \otimes V$.
+Recall that such a tensor has three Ricci tensors $r_1, r_2, r_3$ (technically
+four, but two are conjugate to each other and the other two are Hermitian) and two
+scalar curvatures $s_1$ and $s_2$.
+
+**Corollary 5.**
+$$
+\frac{1}{\Vol S(V)} \int_{S(V)}
+H(v)  d\mu(v)
+= \frac{1}{\binom{n+1}{2}} \frac{s_1 + s_2}{2} .
+$$
+
+
+%begin-proof
+We consider the Hermitian endomorphism $f = (h^{\otimes 2})^{-1} R$ of $V
+\otimes V$.
+The projection formula and some calculations give
+$$
+\frac{1}{\Vol S(V)} \int_{S(V)}
+H(v)  d\mu(v)
+= \frac{1}{\binom{n+1}{2}} \tr(f \circ \Pi_2).
+$$
+As before we know that $\Pi_2 = \frac12(\id + W_{(12)})$
+and we can check that $\tr f = s_1$ and $\tr(f \circ W_{(12)}) = s_2$.
+%end-proof
+
+
+Recall the splitting $V^{\otimes 2} = \bigwedge^2 V \oplus \Sym^2 V$.
+Under it any Hermitian form $R$ on $V^{\otimes 2}$ can be written as
+$$
+R = \begin{pmatrix}
+R_{\wedge^2 V} & R_{(\Sym^2V, \wedge^2 V)}
+\\
+R_{(\wedge^2 V, \Sym^2V)} & R_{\Sym^2 V}
+\end{pmatrix}.
+$$
+
+**Corollary 6.**
+$$
+\frac{1}{\Vol S(V)} \int_{S(V)}
+H(v)^2  d\mu(v)
+= \frac{
+\bigl(
+4 |R_{\Sym^2 V}|^2
++ |r_1 + r_2 + r_2^\dagger + r_3|^2
++ (s_1 + s_2)^2
+\bigr)
+}{4! \binom{n+3}{4}}.
+$$
+
+
+%begin-proof
+The proof begins exactly as before and we calculate our way to the 24 traces.
+Once there
+the sum of the 16 different $\langle \tr_{jk} f, \ov{\tr_{ml} f} \rangle$
+factors is $|\tr_{13} f + \tr_{14} f + \tr_{23} f + \tr_{24} f|^2$.
+Note that as $f$ is Hermitian we have
+$$
+(\tr_{13} f)^\dagger = \tr_{13} f,
+\quad
+(\tr_{14} f)^\dagger = \tr_{23} f,
+\quad
+(\tr_{24} f)^\dagger = \tr_{24} f
+$$
+and the three Ricci forms of $R$ are $r_1 = \tr_{13} f$, $r_2 = \tr_{14} f$ and
+$r_3 = \tr_{24} f$.
+This gives the middle factor above.
+
+The sum of the 4 different total trace factors is likewise
+$$
+(\tr f + \tr(\tr_{14} f))^2 = (s_1 + s_2)^2
+$$
+(as the total traces as real because $f$ is Hermitian).
+This gives the third factor.
+
+That leaves the sum
+$$
+|f|^2
++ \langle  f \circ W_{(12)}, \ov f \rangle
++ \langle  f, \ov{W_{(12)} \circ f} \rangle
++ \langle  f \circ W_{(12)}, \ov{W_{(12)} \circ f} \rangle.
+$$
+Write $\sigma = W_{(12)} \in \End V^{\otimes 2}$.
+Clearly $\sigma^2 = \id$ so its eigenvalues are $1$ and $-1$, and in fact
+the splitting $V^{\otimes 2} = \Sym^2 V \oplus \bigwedge^2 V$
+is according to the eigenspaces of $\sigma$,
+which acts as $\id$ on $\Sym^2V$ and $-\id$ on $\bigwedge^2 V$.
+Writing $\sigma$ out according to this splitting we have
+$$
+\sigma = \begin{pmatrix}
+\id & 0
+\\
+0 & -\id
+\end{pmatrix}
+$$
+from which it is clear that $\sigma^\dagger = \sigma$.
+Because of this and $\sigma^2 = \id$ we get
+$$
+\langle  f \sigma, \ov g \rangle = \langle f, \ov{g\sigma}\rangle,
+\quad
+\langle  \sigma f , \ov g \rangle = \langle f, \ov{\sigma g}\rangle,
+\quad
+\langle  \sigma f, \ov{\sigma g} \rangle = \langle f, \ov g\rangle
+$$
+for any endomorphisms $f,g$ of $V^{\otimes 2}$.
+Note that $\Pi_2 = \frac12(\id + \sigma)$.
+For any $f \in \End V^{\otimes 2}$ its symmetric part $f_{\Sym}$ according to
+the splitting $V^{\otimes 2} = \bigwedge^2 V \oplus \Sym^2 V$ is $\Pi_2 \circ f
+\circ \Pi_2$ and
+
+$$
+\Pi_2 \circ f \circ \Pi_2
+= \tfrac14 (\id + \sigma) f (\id + \sigma)
+= \tfrac14 (f + f \sigma + \sigma f + \sigma f \sigma).
+$$
+
+Then
+
+$$
+\begin{align*}
+16 |\Pi_2 \circ f \circ \Pi_2|^2
+&= |f|^2
++ \langle  f, f \sigma \rangle
++ \langle  f, \sigma f \rangle
++ \langle  f, \sigma f \sigma \rangle
+\\
+&\qquad
++ \langle  f \sigma, f \rangle
++ \langle  f \sigma, f \sigma \rangle
++ \langle  f \sigma, \sigma f \rangle
++ \langle  f \sigma, \sigma f \sigma \rangle
+\\
+&\qquad
++ \langle  \sigma f, f \rangle
++ \langle  \sigma f, f \sigma \rangle
++ \langle  \sigma f, \sigma f \rangle
++ \langle  \sigma f, \sigma f \sigma \rangle
+\\
+&\qquad
++ \langle  \sigma f \sigma, f \rangle
++ \langle  \sigma f \sigma, f \sigma \rangle
++ \langle  \sigma f \sigma, \sigma f \rangle
++ \langle  \sigma f \sigma, \sigma f \sigma \rangle
+\\
+&= |f|^2
++ \langle  f \sigma, f \rangle
++ \langle  \sigma f, f \rangle
++ \langle  \sigma f \sigma, f \rangle
+\\
+&\qquad
++ \langle  f \sigma, f \rangle
++ |f|^2
++ \langle  \sigma f \sigma, f \rangle
++ \langle  \sigma f , f \rangle
+\\
+&\qquad
++ \langle  \sigma f, f \rangle
++ \langle  \sigma f \sigma, f \rangle
++ |f|^2
++ \langle  f\sigma , f \rangle
+\\
+&\qquad
++ \langle  \sigma f \sigma, f \rangle
++ \langle  \sigma f, f \rangle
++ \langle  f \sigma, f \rangle
++ |f|^2
+\\
+&= 4(|f|^2
++ \langle  f \sigma, f \rangle
++ \langle  \sigma f, f \rangle
++ \langle  \sigma f \sigma, f \rangle).
+\end{align*}
+$$
+
+Finally
+
+$$
+\frac{1}{\Vol S(V)}
+\int_{S(V)}
+H(v)^2 \, d\mu(v)
+= \frac{
+\bigl(
+4 |R_{\Sym^2 V}|^2
++ |r_1 + r_2 + r_2^\dagger + r_3|^2
++ (s_1 + s_2)^2
+\bigr)
+}{4! \binom{n+3}{4}}
+$$
+
+as announced.
+%end-proof
+
+
+
+So what can we say about the curvature tensor $R$ of a Hermitian metric that has
+zero holomorphic sectional curvature?
+First off, the symmetric part $R_{\Sym^2 V} = 0$, so according to the splitting
+above we can write
+$$
+R = \begin{pmatrix}
+R_{\wedge^2 V} & R_{(\Sym^2V, \wedge^2 V)}
+\\
+R_{(\wedge^2 V, \Sym^2V)} & 0
+\end{pmatrix}.
+$$
+We also see that $s_1 = -s_2$, and that $r_1 + r_2 + r_2^\dagger + r_3 = 0$.
+It's not clear that there is further water to be squeezed from this stone.
+
+
 
 ## References
 

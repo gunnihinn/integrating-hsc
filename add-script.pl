@@ -18,6 +18,7 @@ MathJax = {
       ov: ['\\\\overline{#1}', 1],
       Sym: '{\\\\operatorname{Sym}}',
       tr: '{\\\\operatorname{tr}}',
+      id: '{\\\\operatorname{id}}',
       End: '{\\\\operatorname{End}}',
       det: '{\\\\operatorname{det}}'
     }
